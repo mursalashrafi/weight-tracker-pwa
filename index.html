@@ -1,14 +1,70 @@
-<!DOCTYPE html> <!--document type declaration, tells the browser this is an html5 doc-->
-<html lang="en"> <!--<html> is the container for everything on the webpage-->
-<!--tags usually come in pairs unless they are self-closing tags like meta charset below-->
-<head> <!--head contains metadata about the page that does not show visually on the page-->
-    <meta charset="UTF-8"> <!--character set, handles english, chinese, emojis-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--mobile responsive setting-->
-    <title>My Weight Tracker</title> <!--shows in browser tab, used by google search, not shown on the page itself-->
-</head> <!--every opening tag needs a closing tag-->
-<body> <!--everything in the body section is visible on your webpage-->
-    <h1>Weight Tracker</h1> <!--h1 is heading tag-->
-    <p>Welcome to my first PWA</p> <!--p is paragraph tag-->
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>My Weight Tracker</title> 
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body> 
+    <div class="container">
+        <header>
+            <h1>Weight Tracker</h1>
+            <p class="tagline">Track your progress, reach your goals</p>
+        </header>
 
+        <!--Entry Section-->
+        <section class="entry-section">
+            <h2>Today's Entry</h2>
+            <form id="weight-form">
+                <div class="form-group">
+                    <label for="weight"></label>
+                    <input 
+                        type="number"
+                        id="weight"
+                        name="weight"
+                        step="0.1"
+                        required
+                        placeholder="Enter weight">
+                    <select id="unit" name="unit">
+                        <option value="lbs">lbs</option>
+                        <option value="kg">kg</option>
+                    </select>
+                    <input 
+                        type="date"
+                        id="date"
+                        name="date"
+                        required
+                        style="margin: 0px;"
+                    >
+                </div>
+                <button type="submit" class="btn-primary">Save Entry</button>
+            </form>
+        </section>
+
+        <!--Recent Entries Section-->
+        <section class="entries-section">
+            <h2>Recent Entries</h2>
+            <div id="entries-list">
+                <p class="empty-state">No entries yet. Add your first weight!</p>
+            </div>
+        </section>
+
+    <!--Goal Section-->
+    <section class="goal-section">
+        <h2>Your Goal</h2>
+        <div id="goal-display"></div>
+    </section>
+
+        <!--Chart-->
+        <section class="chart-section">
+            <h2>Progress Chart</h2>
+            <div id="chart-container">
+                <p class="empty-state">Chart will appear after you add entries.</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
 </body>
-<html>
+</html>
